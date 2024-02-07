@@ -41,6 +41,7 @@ public class DriveConstants {
     public static final double ELEVATOR_MAX_RPM = 435;
     public static final double ELEVATOR_MAX_TICKS_PER_SECOND = ELEVATOR_MAX_RPM * ELEVATOR_TICKS_PER_REV / 60;
     public static final double CLAW_OPEN_POSITION = 0;
+    public static final double CLAW_HALFWAY_OPEN_POSITION = 0.3;
     public static final double CLAW_CLOSE_POSITION = 1;
     public static final double ARM_UP_POSITION = 1;
     public static final double ARM_DOWN_POSITION = 0;

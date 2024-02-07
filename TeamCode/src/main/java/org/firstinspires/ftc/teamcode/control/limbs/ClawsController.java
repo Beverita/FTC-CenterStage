@@ -6,7 +6,7 @@ import org.firstinspires.ftc.teamcode.util.constants.DriveConstants;
 
 public class ClawsController implements Claws {
     private final RobotHardware robotHardware;
-    private boolean clawState = false;
+    private int clawState = 1;
     private boolean armState = false;
     private boolean planeLauncherState = false;
 
@@ -16,25 +16,31 @@ public class ClawsController implements Claws {
 
     @Override
     public boolean useClaws() {
-        if (clawState) {
-            robotHardware.getClawServo().setPosition(DriveConstants.CLAW_CLOSE_POSITION);
-            clawState = false;
-        } else {
-            robotHardware.getClawServo().setPosition(DriveConstants.CLAW_OPEN_POSITION);
-            clawState = true;
+        switch (clawState){
+            case 1:
+                robotHardware.getClawServo().setPosition(DriveConstants.CLAW_HALFWAY_OPEN_POSITION);
+                clawState = 2;
+                break;
+            case 2:
+                robotHardware.getClawServo().setPosition(DriveConstants.CLAW_CLOSE_POSITION);
+                clawState = 3;
+                break;
+            case 3:
+                robotHardware.getClawServo().setPosition(DriveConstants.CLAW_OPEN_POSITION);
+                clawState = 1;
+                break;
         }
 
-        return clawState;
+        return true;
     }
 
     @Override
     public void useClaws(boolean state) {
         if (state) {
             robotHardware.getClawServo().setPosition(DriveConstants.CLAW_OPEN_POSITION);
-            clawState = true;
+            clawState = 1;
         } else {
             robotHardware.getClawServo().setPosition(DriveConstants.CLAW_CLOSE_POSITION);
-            clawState = false;
         }
     }
 
@@ -78,6 +84,6 @@ public class ClawsController implements Claws {
 
     @Override
     public boolean isClaws() {
-        return clawState;
+        return true;
     }
 }
