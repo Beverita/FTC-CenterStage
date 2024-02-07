@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Pipeline extends OpenCvPipeline {
 
-    List<Integer> ELEMENT_COLOR = Arrays.asList(255, 0, 0); //(red, green, blue)
+    List<Integer> ELEMENT_COLOR = Arrays.asList(0, 0, 255); //(red, green, blue)
 
     //Telemetry telemetry;
 
@@ -46,7 +46,7 @@ public class Pipeline extends OpenCvPipeline {
 
         //Defining Zones
         //Rect(top left x, top left y, bottom right x, bottom right y)
-        zone1 = input.submat(new Rect(260, 170, 200, 285));
+        zone1 = input.submat(new Rect(360, 170, 200, 285));
         zone2 = input.submat(new Rect(1150, 170, 130, 230));
 
         //Averaging the colors in the zones
@@ -61,7 +61,7 @@ public class Pipeline extends OpenCvPipeline {
         distance2 = color_distance(avgColor2, ELEMENT_COLOR);
 
         if ((distance1 > 195) && (distance2 > 190)){
-            color_zone = 3;
+            color_zone = 2;
             max_distance = -1;
         }else{
             max_distance = Math.min(distance1, distance2);
@@ -72,7 +72,8 @@ public class Pipeline extends OpenCvPipeline {
 
             }else{
                 //telemetry.addData("Zone 2 Has Element", distance2);
-                color_zone = 2;
+                color_zone = 3
+                ;
             }
         }
 

@@ -76,6 +76,7 @@ public abstract class AutonomousControl extends LinearOpMode {
             elementZone = elementDetection(telemetry);
             telemetry.addData("getMaxDistance", getMaxDistance());
             telemetry.addData("Zone", elementZone);
+            telemetry.update();
         }
 
         initTrajectories();

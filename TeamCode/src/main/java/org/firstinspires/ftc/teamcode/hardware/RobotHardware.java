@@ -157,7 +157,7 @@ public class RobotHardware {
         rightFrontMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         rightBackMotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        leftElevatorMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftElevatorMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         rightElevatorMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         setAllMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -226,8 +226,8 @@ public class RobotHardware {
         //Approx 36 - 130 deg
 
         planeLauncherServo.scaleRange(0,0.4);
-        leftArmServo.scaleRange(0.2,0.35);
-        rightArmServo.scaleRange(0.2,0.35);
+        leftArmServo.scaleRange(0.39,0.6);
+        rightArmServo.scaleRange(0.39,0.6);
         clawServo.scaleRange(0,0.02);
     }
 
