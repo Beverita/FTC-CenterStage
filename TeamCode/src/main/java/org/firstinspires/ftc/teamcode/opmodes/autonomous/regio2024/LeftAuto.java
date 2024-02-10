@@ -1,16 +1,17 @@
 package org.firstinspires.ftc.teamcode.opmodes.autonomous.regio2024;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.control.AutonomousControl;
 import org.firstinspires.ftc.teamcode.roadrunner.trajectorysequence.TrajectorySequence;
 
-@Autonomous(name = "Auto", group = "Regio", preselectTeleOp = "Regio TeleOp")
-public class BlueBackboardAuto extends AutonomousControl {
+@Autonomous(name = "Left", group = "Regio", preselectTeleOp = "Regio TeleOp")
+@Disabled
+public class LeftAuto extends AutonomousControl {
     enum States {
         START,
         PARK,
@@ -43,7 +44,7 @@ public class BlueBackboardAuto extends AutonomousControl {
 
         parkCenter = robotHardware.getMecanumDriveController()
                 .trajectoryBuilder(startPose)
-                .lineTo(new Vector2d(-10, -45))
+                .forward(15)
                 .build();
     }
 

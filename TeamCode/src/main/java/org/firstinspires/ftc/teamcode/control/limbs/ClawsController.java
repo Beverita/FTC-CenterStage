@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.util.constants.DriveConstants;
 public class ClawsController implements Claws {
     private final RobotHardware robotHardware;
     private int clawState = 1;
-    private boolean armState = false;
+    private boolean armState = true;
     private boolean planeLauncherState = false;
 
     public ClawsController(RobotHardware robotHardware) {
